@@ -17,7 +17,7 @@ function reset() {
     for (i = 0; i < num_players; i++) { $(players[curr_player].bg_name).css('opacity', '0'); }
     $('#bg-winner').css('background-color', 'transparent');
     $('button').css("background-color", 'rgb(230, 230, 230)');
-    $('button').css("border-color", 'rgb(0, 0, 0, 0.3)');
+    $('button').css("border-color", 'rgb(255, 255, 255, 0.1)');
     $('body').css('background-image', 'linear-gradient(-90deg, red, blue)')
     $('body').css('background-color', 'transparent');
     $('.navbar-left').removeClass('bg-dark');
