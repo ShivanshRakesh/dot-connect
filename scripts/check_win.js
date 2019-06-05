@@ -1,9 +1,49 @@
 function check_win(row, col) {
     var win = false;
-    if (diag1_check(row, col) >= req_len) { win = true; }
-    else if (diag2_check(row, col) >= req_len) { win = true; }
-    else if (row_check(row, col) >= req_len) { win = true; }
-    else if (col_check(row, col) >= req_len) { win = true; }
+
+    var res = diag1_check(row, col);
+    if (!win && res[0] >= req_len) {
+        win = true;
+        for (i = 1; i <= res[1]; i++) {
+            $('#grid tr').eq(row - i).find('td').eq(col - i).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+        for (i = 0; i < res[2]; i++) {
+            $('#grid tr').eq(row + i).find('td').eq(col + i).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+    }
+
+    var res = diag2_check(row, col);
+    if (!win && res[0] >= req_len) {
+        win = true;
+        for (i = 1; i <= res[1]; i++) {
+            $('#grid tr').eq(row - i).find('td').eq(col + i).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+        for (i = 0; i < res[2]; i++) {
+            $('#grid tr').eq(row + i).find('td').eq(col - i).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+    }
+
+    var res = row_check(row, col);
+    if (!win && res[0] >= req_len) {
+        win = true;
+        for (i = 1; i <= res[1]; i++) {
+            $('#grid tr').eq(row - i).find('td').eq(col).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+        for (i = 0; i < res[2]; i++) {
+            $('#grid tr').eq(row + i).find('td').eq(col).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+    }
+
+    var res = col_check(row, col);
+    if (!win && res[0] >= req_len) {
+        win = true;
+        for (i = 1; i <= res[1]; i++) {
+            $('#grid tr').eq(row).find('td').eq(col - i).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+        for (i = 0; i < res[2]; i++) {
+            $('#grid tr').eq(row).find('td').eq(col + i).find('button').css("border-color", 'rgba(255,255,255,0.8)');
+        }
+    }
 
     if (win) {
         $('#bg-winner').css('background-color', players[curr_player].win_color);
@@ -14,35 +54,44 @@ function check_win(row, col) {
         $('.navbar-left').html("<span style='color:" + players[curr_player].color + "'>" + players[curr_player].name.toUpperCase() + "</span> WINS!!");
         $('.navbar-left').addClass('bg-dark');
     }
+
     return win;
 }
 
 function diag1_check(row, col) {
-    var cnt = 0, tmpRow = row - 1, tmpCol = col - 1;
+    var before = curr_after = cnt = 0, tmpRow = row - 1, tmpCol = col - 1;
     while (isValid(tmpRow, tmpCol) && grid_arr[tmpRow][tmpCol] == players[curr_player].color) { tmpRow--; tmpCol--; cnt++; }
+    before = cnt;
     while (isValid(row, col) && grid_arr[row][col] == players[curr_player].color) { row++; col++; cnt++; }
-    return cnt;
+    curr_after = cnt - before;
+    return [cnt, before, curr_after];
 }
 
 function diag2_check(row, col) {
-    var cnt = 0, tmpRow = row - 1, tmpCol = col + 1;
+    var before = curr_after = cnt = 0, tmpRow = row - 1, tmpCol = col + 1;
     while (isValid(tmpRow, tmpCol) && grid_arr[tmpRow][tmpCol] == players[curr_player].color) { tmpRow--; tmpCol++; cnt++; }
+    before = cnt;
     while (isValid(row, col) && grid_arr[row][col] == players[curr_player].color) { row++; col--; cnt++; }
-    return cnt;
+    curr_after = cnt - before;
+    return [cnt, before, curr_after];
 }
 
 function row_check(row, col) {
-    var cnt = 0, tmpRow = row - 1, tmpCol = col;
+    var before = curr_after = cnt = 0, tmpRow = row - 1, tmpCol = col;
     while (isValid(tmpRow, tmpCol) && grid_arr[tmpRow][tmpCol] == players[curr_player].color) { tmpRow--; cnt++; }
+    before = cnt;
     while (isValid(row, col) && grid_arr[row][col] == players[curr_player].color) { row++; cnt++; }
-    return cnt;
+    curr_after = cnt - before;
+    return [cnt, before, curr_after];
 }
 
 function col_check(row, col) {
-    var cnt = 0, tmpRow = row, tmpCol = col - 1;
+    var before = curr_after = cnt = 0, tmpRow = row, tmpCol = col - 1;
     while (isValid(tmpRow, tmpCol) && grid_arr[tmpRow][tmpCol] == players[curr_player].color) { tmpCol--; cnt++; }
+    before = cnt;
     while (isValid(row, col) && grid_arr[row][col] == players[curr_player].color) { col++; cnt++; }
-    return cnt;
+    curr_after = cnt - before;
+    return [cnt, before, curr_after];
 }
 
 function isValid(row, col) {
