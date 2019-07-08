@@ -24,4 +24,4 @@ Responsive and colourful UI.
 * **Shivansh Rakesh** - *Initial work* - [ShivanshRakesh](https://github.com/ShivanshRakesh)
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcomed. For major changes, please open an issue first to discuss what you would like to change.
