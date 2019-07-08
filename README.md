@@ -4,6 +4,12 @@ Dot Connect is a multiplayer game written in JavaScript (HTML and CSS for layout
  
 Number of players allowed: 2-4
 
+## Usage
+
+The game is hosted on https://shivanshrakesh.github.io/dot-connect/.
+
+Also, it can be played locally by downloading the project and opening `index.html`.
+
 ## Features
 
 Upto 4 players supported.
