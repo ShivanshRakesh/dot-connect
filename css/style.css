@@ -152,7 +152,7 @@ body {
   border: 2vh solid rgb(255, 255, 255, 0.1);
   border-radius: 50%;
   background-color: rgb(230, 230, 230);
-  transition: background-color 0.5s;
+  transition-duration: 0.5s;
   cursor: cell;
 }
 
