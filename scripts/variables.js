@@ -30,10 +30,17 @@ var player4 = {
 
 var players = [player1, player2, player3, player4];
 var curr_player = 0, game_over = false, validClick = false;
-var rows = cols = 6, col_clicked, row_clicked, num_clicks = 0;
+var col_clicked, row_clicked, num_clicks = 0;
 var req_len = 4, num_players = 2;     //DEFAULT
 var grid_arr = [], first_empty = [];
-for (i = 0; i < rows; i++) {
-  grid_arr.push(['none', 'none', 'none', 'none', 'none', 'none']);
-  first_empty.push(rows - 1);
+
+for (i = 0; i < window.TABLE_SIZE[0]; i++) {
+  const a = [];
+  for (let j = 0; j < window.TABLE_SIZE[1]; j++)
+    a.push('none');
+  grid_arr.push(a);
+}
+
+for (i = 0; i < window.TABLE_SIZE[1]; i++) {
+  first_empty.push(window.TABLE_SIZE[0] - 1);
 }

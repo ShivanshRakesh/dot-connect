@@ -1,5 +1,5 @@
-const table = document.getElementById("grid"),
-    TABLE_SIZE = [6, 7];
+const table = document.getElementById("grid");
+window.TABLE_SIZE = [6, 7];
 
 for (let row = 0; row < TABLE_SIZE[0]; row++) {
     const tr = document.createElement("tr");

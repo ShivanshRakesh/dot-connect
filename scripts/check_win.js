@@ -95,7 +95,7 @@ function col_check(row, col) {
 }
 
 function isValid(row, col) {
-    if (row >= rows || row < 0) { return false; }
-    if (col >= cols || col < 0) { return false; }
+    if (row >= window.TABLE_SIZE[0] || row < 0) { return false; }
+    if (col >= window.TABLE_SIZE[1] || col < 0) { return false; }
     return true;
 }
