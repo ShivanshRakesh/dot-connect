@@ -24,8 +24,15 @@ function reset() {
     $('.navbar-left').html("DOT CONNECT");
     curr_player = 0, game_over = false, validClick = false;
     col_clicked, row_clicked, num_clicks = 0;
-    for (i = 0; i < rows; i++) {
-        first_empty[i] = rows - 1;
-        grid_arr[i] = ['none', 'none', 'none', 'none', 'none', 'none'];
+    grid_arr = [], first_empty = [];
+    for (i = 0; i < window.TABLE_SIZE[0]; i++) {
+        const a = [];
+        for (let j = 0; j < window.TABLE_SIZE[1]; j++)
+            a.push('none');
+        grid_arr.push(a);
+    }
+
+    for (i = 0; i < window.TABLE_SIZE[1]; i++) {
+        first_empty.push(window.TABLE_SIZE[0] - 1);
     }
 }
