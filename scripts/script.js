@@ -20,7 +20,7 @@ document.addEventListener("click", function () {
       first_empty[col_clicked]--;
       num_clicks++;
     }
-    if (num_clicks == rows * cols) {
+    if (num_clicks == window.TABLE_SIZE[0] * window.TABLE_SIZE[1]) {
       for (i = 0; i < num_players; i++) { $(players[curr_player].bg_name).css('opacity', '0'); }
       $('.navbar-left').text("DRAW");
       game_over = true;
