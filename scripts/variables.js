@@ -39,5 +39,8 @@ for (i = 0; i < window.TABLE_SIZE[0]; i++) {
   for (let j = 0; j < window.TABLE_SIZE[1]; j++)
     a.push('none');
   grid_arr.push(a);
-  first_empty.push(window.TABLE_SIZE[1] - 1);
+}
+
+for (i = 0; i < window.TABLE_SIZE[1]; i++) {
+  first_empty.push(window.TABLE_SIZE[0] - 1);
 }
