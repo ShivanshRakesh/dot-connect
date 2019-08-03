@@ -22,7 +22,9 @@ function reset() {
     $('body').css('background-color', 'transparent');
     $('.navbar-left').removeClass('bg-dark');
     $('.navbar-left').html("DOT CONNECT");
-    curr_player = 0, game_over = false, validClick = false;
+    curr_player = 0, prev_player = -1, game_over = false, validClick = false;
+    prev_move[0] = -1;
+    prev_move[1] = -1;
     col_clicked, row_clicked, num_clicks = 0;
     grid_arr = [], first_empty = [];
     for (i = 0; i < window.TABLE_SIZE[0]; i++) {

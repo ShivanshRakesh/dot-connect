@@ -16,6 +16,9 @@ document.addEventListener("click", function () {
       chng_colors();
       grid_arr[first_empty[col_clicked]][col_clicked] = players[curr_player].color;
       if (check_win(first_empty[col_clicked], col_clicked)) { game_over = true; }
+      prev_move[0] = first_empty[col_clicked];
+      prev_move[1] = col_clicked;
+      prev_player = curr_player;
       curr_player = (curr_player + 1) % num_players;
       first_empty[col_clicked]--;
       num_clicks++;
