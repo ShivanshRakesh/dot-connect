@@ -19,8 +19,3 @@ function undo() {
         alert(players[prev_player].name + " has already used UNDO once!");
     }
 }
-
-
-// ENHANCEMENT:
-//     - STORE PREVIOUS MOVE FOR EACH PLAYER SEPARATELY
-//     - USE THAT FOR UNDO
