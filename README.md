@@ -25,6 +25,12 @@ Responsive and colourful UI.
 * CSS 
 * HTML
 
+## Screenshots
+
+![](https://github.com/ShivanshRakesh/dot-connect/blob/master/pics/Screenshot1.png) 
+
+![](https://github.com/ShivanshRakesh/dot-connect/blob/master/pics/Screenshot2.png)
+
 ## Authors
 
 * **Shivansh Rakesh** - *Initial work* - [ShivanshRakesh](https://github.com/ShivanshRakesh)
