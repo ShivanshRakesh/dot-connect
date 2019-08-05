@@ -1,37 +1,55 @@
+// STORE CELL INDEX ON CLICK
 $('tr').click(function () {
   row_clicked = $(this).index();
 });
 
 $('.col').click(function () {
   col_clicked = $(this).index();
-  validClick = true;
+  validClick = true; // CLICK IS VALID IF ON A COL
 });
 
 document.addEventListener("click", function () {
+  // ON EACH CLICK CHECK IF IT IS A VALID CLICK. IF YES, PROCEED.
   if (validClick) {
     if (num_clicks == 0) {
       $('body').css('background-image', 'linear-gradient(0deg, rgb(0, 0, 0), rgb(0, 0, 0))');
     }
+
+    // CHECK IF GAME IS NOT OVER AND THERE ARE UNOCCUPIED CELLS IN THE COL CLICKED
     if (!game_over && first_empty[col_clicked] >= 0) {
+      // CHANGE BACKGROUND COLOR AND DOT COLOR ACCORDING TO THAT OF CURR_PLAYER
       chng_colors();
+
+      // STORE THE COLOR OF THE CURR_PLAYER IN THE RESPECTIVE CELL
       grid_arr[first_empty[col_clicked]][col_clicked] = players[curr_player].color;
+
+      // CHECK IF THE GAME HAS BEEN WON BY THE CURR_PLAYER AFTER THIS CLICK
       if (check_win(first_empty[col_clicked], col_clicked)) { game_over = true; }
+
+      // STORE PREV_MOVE DETAILS FOR UNDO
       prev_move[0] = first_empty[col_clicked];
       prev_move[1] = col_clicked;
       prev_player = curr_player;
+
+      // MAKE CHANGES IN STATE VARIABLES
       curr_player = (curr_player + 1) % num_players;
       first_empty[col_clicked]--;
       num_clicks++;
     }
+
+    // CHECK IF ALL CELLS ARE OCCUPIED. IF YES, GAME IS A DRAW.
     if (num_clicks == window.TABLE_SIZE[0] * window.TABLE_SIZE[1]) {
       for (i = 0; i < num_players; i++) { $(players[curr_player].bg_name).css('opacity', '0'); }
       $('.navbar-left').text("DRAW");
       game_over = true;
     }
+
+    // RESET VALIDCLICK FOR NEXT CLICK
     validClick = false;
   }
 });
 
+// FUNCTION TO START A NEW GAME
 function start_new() {
   reset();
   req_len = $('#req-dots').find('option:selected').attr('value');
@@ -42,6 +60,7 @@ function start_new() {
   open_options();
 }
 
+// FUNCTION TO TOGGLE OPTIONS MENU
 function open_options() {
   $('.options').slideToggle(400, 'swing');
   $('.info').slideUp();
@@ -49,6 +68,7 @@ function open_options() {
     $('.navbar-left').text("DOT CONNECT");
 }
 
+// FUNCTION TO TOGGLE INFO MENU
 function show_info() {
   $('.info').slideToggle(400, 'swing');
   var header = $('.navbar-left');
@@ -58,6 +78,7 @@ function show_info() {
     header.text("INSTRUCTIONS");
 }
 
+// FUNCTION TO CHANGE BACKGROUND COLORS AND DOT COLOR WRT TO CURR_PLAYER
 function chng_colors() {
   for (i = 0; i < num_players; i++) { $(players[curr_player].bg_name).css('opacity', '0'); }
   $(players[(curr_player + 1) % num_players].bg_name).css('opacity', '1');

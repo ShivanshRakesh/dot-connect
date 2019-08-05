@@ -18,9 +18,9 @@
     <li><a class="navbar-left">DOT CONNECT</a></li>
     <li><a class="navbar-right" onclick="open_options()" title="OPTIONS"><i class="fas fa-ellipsis-v"></i></a></li>
     <li><a class="navbar-right" onclick="show_info()" title="INFO"><i class="fas fa-info-circle"></i></a></li>
-    <li><a class="navbar-right" onclick="$('#dialog').dialog('open');" title="RESET"><i class="fas fa-undo-alt"></i></a>
+    <li><a class="navbar-right" onclick="$('#dialog').dialog('open');" title="RESET"><i class="fas fa-trash-restore"></i></a>
     </li>
-    <li><a class="navbar-right" onclick="undo()" title="UNDO">undo</a></li>
+    <li><a class="navbar-right" onclick="undo()" title="UNDO"><i class="fas fa-undo-alt"></i></a></li>
   </ul>
 
   <div id="dialog">
@@ -65,7 +65,8 @@
       The player who does this first, wins the game.
       The number of dots required to win can be selected from the options menu
       (<i class="fas fa-ellipsis-v"></i>) in the navigation bar.
-      The number of players can be between 2-4.</p>
+      The number of players can be between 2-4. Also, each player gets exactly one chance for UNDO.
+      Consecutive UNDOs is not allowed.</p>
   </div>
 
   <script> $('.info').hide(); $('.options').hide();</script>

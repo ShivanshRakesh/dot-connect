@@ -1,3 +1,4 @@
+// DIALOG BOX FOR RESET CONFIRMATION
 $("#dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -13,6 +14,7 @@ $("#dialog").dialog({
     }
 });
 
+// RESET FUNCTION
 function reset() {
     for (i = 0; i < num_players; i++) { $(players[curr_player].bg_name).css('opacity', '0'); }
     $('#bg-winner').css('background-color', 'transparent');

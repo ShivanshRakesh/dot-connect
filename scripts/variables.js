@@ -1,4 +1,12 @@
+// COLOR RGB CONF FOR DOTS
 var red = 'rgb(255, 80, 0)', blue = 'rgb(0, 160, 255)', yellow = 'rgb(255, 195, 0)', green = 'rgb(0, 240, 160)';
+
+// PLAYER DETAILS
+// NAME: DISPLAY NAME
+// WIN_COLOR: BACKGROUND COLOR CHANGE ON WINNING
+// COLOR: DOT COLOR
+// BG_NAME: ID OF BACKGROUND DIV
+// CAN_UNDO: WETHER OR NOT HAS THE PLAYER USED IT'S UNDO CHANCE ONCE
 
 var player1 = {
   name: "Player-1",
@@ -33,19 +41,27 @@ var player4 = {
 };
 
 var players = [player1, player2, player3, player4];
+
+// CURRENT STATUS OF THE GAME
 var curr_player = 0, prev_player = -1, game_over = false, validClick = false;
 var col_clicked, row_clicked, num_clicks = 0;
+
+// GAME VARIABLES
 var req_len = 4, num_players = 2;     //DEFAULT
 var prev_move = [-1, -1];   //ROW, COLULMN
 
+// GRID_ARR: A 2-D ARRAY TO STORE THE GRID STATE AT ANY POINT OF TIME
+// FIRST_EMPTY: AN ARRAY TO STORE THE TOPMOST EMPTY CELL FOR EACH COLUMN IN THE GRID
 var grid_arr = [], first_empty = [];
 for (i = 0; i < window.TABLE_SIZE[0]; i++) {
   const tmp = [];
+  // INITIALIZING EACH CELL WITH 'NONE'; AFTER A MOVE, COLOUR OF THE PLAYER IS STORED
   for (let j = 0; j < window.TABLE_SIZE[1]; j++)
     tmp.push('none');
   grid_arr.push(tmp);
 }
 
+// INITIALIZING EACH COL'S FIRST_EMPTY CELL WITH THE LAST ROW INDEX
 for (i = 0; i < window.TABLE_SIZE[1]; i++) {
   first_empty.push(window.TABLE_SIZE[0] - 1);
 }

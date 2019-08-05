@@ -1,3 +1,5 @@
+// SCRIPT TO INSERT GRID IN THE PAGE
+
 const table = document.getElementById("grid");
 window.TABLE_SIZE = [6, 7];
 
