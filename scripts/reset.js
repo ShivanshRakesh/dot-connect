@@ -39,4 +39,8 @@ function reset() {
     for (i = 0; i < window.TABLE_SIZE[1]; i++) {
         first_empty.push(window.TABLE_SIZE[0] - 1);
     }
+
+    for (player in players) {
+        player.can_undo = true;
+    }
 }
