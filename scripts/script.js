@@ -35,6 +35,7 @@ document.addEventListener("click", function () {
       curr_player = (curr_player + 1) % num_players;
       first_empty[col_clicked]--;
       num_clicks++;
+      undo_clicked = false;
     }
 
     // CHECK IF ALL CELLS ARE OCCUPIED. IF YES, GAME IS A DRAW.

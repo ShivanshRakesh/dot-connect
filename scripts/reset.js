@@ -40,7 +40,7 @@ function reset() {
         first_empty.push(window.TABLE_SIZE[0] - 1);
     }
 
-    for (player in players) {
-        player.can_undo = true;
+    for (i = 0; i < players.length; i++) {
+        players[i].can_undo = true;
     }
 }

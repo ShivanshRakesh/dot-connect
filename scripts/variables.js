@@ -42,9 +42,10 @@ var player4 = {
 
 var players = [player1, player2, player3, player4];
 
-// CURRENT STATUS OF THE GAME
+// CURRENT STATUS OF THE GAME or STATE VARIABLES
 var curr_player = 0, prev_player = -1, game_over = false, validClick = false;
 var col_clicked, row_clicked, num_clicks = 0;
+var undo_clicked = false;
 
 // GAME VARIABLES
 var req_len = 4, num_players = 2;     //DEFAULT

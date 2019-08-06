@@ -4,6 +4,11 @@ function undo() {
         alert("Game has ended!");
     }
 
+    // CONSECUTIVE
+    else if (undo_clicked){
+        alert("Consecutive UNDOs not allowed!");
+    }
+
     // FIRST MOVE OF THE GAME
     else if (prev_player == -1) {
         alert("No move registered!");
@@ -11,6 +16,7 @@ function undo() {
 
     // CURR_PLAYER HAS NOT USED UNDO YET
     else if (players[prev_player].can_undo) {
+        undo_clicked = true;
         // RESET PARAMETERS
         grid_arr[prev_move[0]][prev_move[1]] = 'none';
         $(players[curr_player].bg_name).css('opacity', '0');
