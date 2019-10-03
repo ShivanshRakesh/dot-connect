@@ -12,11 +12,11 @@ Also, it can be played locally by downloading the project and opening `index.htm
 
 ## Features
 
-Upto 4 players supported.
+* Upto 4 players supported.
 
-Number of dots required to win can be user-specified.
+* Number of dots required to win can be user-specified.
 
-Responsive and colourful UI.
+* Responsive and colourful UI.
 
 ## Built With
 
@@ -30,6 +30,11 @@ Responsive and colourful UI.
 ![](https://github.com/ShivanshRakesh/dot-connect/blob/master/pics/Screenshot1.png) 
 
 ![](https://github.com/ShivanshRakesh/dot-connect/blob/master/pics/Screenshot2.png)
+
+## Enhancements(WIP)
+
+* Make the game cross-device playable.
+* Make the game mobile friendly.
 
 ## Authors
 
